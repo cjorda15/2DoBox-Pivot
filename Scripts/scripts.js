@@ -5,7 +5,7 @@ $("#submit").on('click', function(e){
 	var card = new Card(storeIdeaTitle, storeIdeaContent);
 	var stringCard = JSON.stringify(card);
 	// for(i =0; i<)
-	localStorage.setItem("storeCard", stringCard);
+	localStorage.setItem(card.id, stringCard);
 	console.log(card);
 	console.log(stringCard);
 })
@@ -14,5 +14,5 @@ function Card(storeIdeaTitle, storeIdeaContent) {
 	this.title = storeIdeaTitle;
 	this.body = storeIdeaContent;
 	this.quality = undefined;
-	this.id = $('#new-idea').length;
+	this.id = localStorage.length;
 }
