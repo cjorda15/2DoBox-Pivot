@@ -7,7 +7,6 @@ $("#submit").on('click', function(e){
 	localStorage.setItem(card.id, stringCard);
 	console.log(card);
 	console.log(stringCard);
-
 })
 
 function Card(storeIdeaTitle, storeIdeaContent) {
