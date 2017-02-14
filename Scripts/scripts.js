@@ -4,10 +4,10 @@ $("#submit").on('click', function(e){
 	var storeIdeaContent = $('#content-input').val();
 	var card = new Card(storeIdeaTitle, storeIdeaContent);
 	var stringCard = JSON.stringify(card);
+	// for(i =0; i<)
 	localStorage.setItem("storeCard", stringCard);
 	console.log(card);
 	console.log(stringCard);
-
 })
 
 function Card(storeIdeaTitle, storeIdeaContent) {
