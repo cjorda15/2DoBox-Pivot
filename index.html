@@ -4,30 +4,36 @@
 <head>
   <meta charset="utf-8">
   <title>IdeaBox</title>
-  <link rel="stylesheet" srce="normalize.css">
-  <link rel="stylesheet" src="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
 <body>
   <section class="page-wrapper">
-    <header>
-      <h1>Ideabox logo</h1>
-    </header>
     <main>
+      <header>
+        <h1><span id="ideabox">idea</span>box</h1>
+      </header>
       <form>
         <input type="text" id="title-input">
         <input type="textarea" id="content-input">
-        <button id="submit">Submit</button>
+        <button id="submit">save</button>
       </form>
     </main>
     <aside>
       <input type="text" id="search">
-      <article>
-        <h2>Example Title</h2>
-        <img class ="clear">
-        <p>Example text ahasdfasfjaskdfj aslkdfj alksdfj</p>
-        <img class="upvote"> <img class="downvote"> <span class="quality"></span>
-      </article>
+      <section>
+        <header>
+          <h1>EntryTitle</h1>
+          <img class ="clear">
+        </header>
+        <article>
+          <p>Example text ahasdfasfjaskdfj aslkdfj alksdfj</p>
+          <button class="icon-button"><img class="upvote"></button><button class="icon-button"><img class="downvote"></button>
+         <span class="quality"></span>
+        </article>
+        <hr>
+      </section>
     </aside>
   </section>
 </body>

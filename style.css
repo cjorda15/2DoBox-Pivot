@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab:700');
+
+body{
+  font-family: "Open Sans", sans-serif;
+}
+
+.page-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+header{
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+}
+
+main{
+  background-color: #e5f3f2;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+}
+
+aside{
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+}
+
+input{
+  border-color: #939598;
+  border-width: 1px;
+  border-style: solid;
+}
+
+button{
+
+}
+
+h1{
+  color: #6D6E71;
+}
+
+#ideabox{
+  color: #00a79d;
+}
+
+#submit{
+  
+  background-color: #00a79d;
+
+}
