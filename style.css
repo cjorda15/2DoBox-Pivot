@@ -77,30 +77,37 @@ li{
 }
 
 .clear, .upvote, .downvote {
-  background-image: url("images/button-sprites.svg");
-  background-size: 160px;
+  /*background-image: url("images/button-sprites.svg");*/
+  background-size: 100%;
   background-repeat: no-repeat;
-  width: 20px;
-  height: 20px;
-
-
+  width: 30px;
+  height: 30px;
 }
 
 .clear{
-  background-position: 0px 0px;
+  /*background-position: 0px 0px;*/
+  background-image: url("images/delete.svg")
+}
+.clear:hover{
+  background-image: url("images/delete-hover.svg")
+}
+
+.upvote{
+  /*background-position: -108px -50px;*/
+  background-image: url("images/upvote.svg")
 }
 
 .upvote:hover{
-  background-position: -108px 1px;
+  /*background-position: -108px 1px;*/
+  background-image: url("images/upvote-hover.svg")
 }
-
-
-.upvote{
-  background-position: -108px -50px;
-}
-
 
 .downvote{
-  background-position: 5px 5px;
+  /*background-position: 5px 5px;*/
+  background-image: url("images/downvote.svg")
+}
 
+.downvote:hover{
+  /*background-position: 5px 5px;*/
+  background-image: url("images/downvote-hover.svg")
 }
