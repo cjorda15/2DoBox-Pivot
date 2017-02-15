@@ -13,6 +13,7 @@ $("#submit").on('click', function(e){
 	data.unshift(card);
 	storeIdea();
 	printIdea();
+	// console.log(card.id);
 })
 
 function Card(storeIdeaTitle, storeIdeaContent) {
@@ -37,7 +38,7 @@ function printIdea(){
 $("#card-section").empty();
 data.forEach(function(object) {
 	 	$("#card-section").append(`
-			<div class="new-idea">
+			<div id="${object.id}" class="new-idea">
 				<header>
 					<h1 class="entry-title">${object.title}</h1>
 					<ul>
@@ -56,11 +57,20 @@ data.forEach(function(object) {
 }
 
 $("#card-section").on('click','.upvote', function() {
+		var qualityVar = $(this).siblings(".quality").text();
 		if($(this).siblings(".quality").text() === "swill") {
-			console.log("am I here?")
 			$(this).siblings(".quality").text("plausible");
+			qualityVar = "plausible";
 		} else if ($(this).siblings(".quality").text() === "plausible") {
 			$(this).siblings(".quality").text("genius");
-			console.log("where am I?")
+			qualityVar = "genius"
 		}
+		editIdea(this, qualityVar);
 });
+
+
+function editIdea(location, qualityVar){
+	var id = $(location).parent().parent().attr("id");
+	console.log(id);
+
+}
