@@ -1,8 +1,6 @@
 var data = [];
 
 $(document).ready(function(){
-	console.log("here we are")
-	console.log(localStorage);
 	getIdea();
 	printIdea();
 })
@@ -14,10 +12,8 @@ $("#submit").on('click', function(e){
 	var card = new Card(storeIdeaTitle, storeIdeaContent);
 	data.unshift(card);
 	storeIdea();
-	// getIdea();
 	printIdea();
-	console.log('localStorage', localStorage)
-	console.log(data);
+	// console.log(card.id);
 })
 
 function Card(storeIdeaTitle, storeIdeaContent) {
@@ -36,14 +32,13 @@ function getIdea(){
 	var storedData = localStorage.getItem("Data Item") || '[]';
 	var parsedData = JSON.parse(storedData);
 	data = parsedData;
-	console.log('getIdea', data);
 }
 
 function printIdea(){
 $("#card-section").empty();
 data.forEach(function(object) {
 	 	$("#card-section").append(`
-			<div class="new-idea">
+			<div id="${object.id}" class="new-idea">
 				<header>
 					<h1 class="entry-title">${object.title}</h1>
 					<ul>
@@ -52,24 +47,44 @@ data.forEach(function(object) {
 				</header>
 				<article>
 					<p>${object.body}</p>
-					<ul>
-						<li class="upvote"><a></a></li>
-						<li class="downvote"><a></a></li>
-					</ul>
-					<span class="quality">${object.quality}</span>
+					<h3>quality:<h4 class="quality">${object.quality}</h4></h3>
+					<button class="upvote"></button>
+					<button class="downvote"></button>
 				</article>
 				<hr>
 			</div>`);
 	});
-
 }
 
-// for (var i = 0; i<localStorage.length; i++){
-// 	console.log(localStorage.getItem(localStorage.key(i)));
-// }
+$("#card-section").on('click','.upvote', function() {
+		var qualityVar = $(this).siblings(".quality").text();
+		if($(this).siblings(".quality").text() === "swill") {
+			$(this).siblings(".quality").text("plausible");
+			qualityVar = "plausible";
+		} else if ($(this).siblings(".quality").text() === "plausible") {
+			$(this).siblings(".quality").text("genius");
+			qualityVar = "genius"
+		}
+		editIdea(this, qualityVar);
+});
 
-// for (var i = 0; i<localStorage.length; i++){
-// 	var getBack = localStorage.getItem(localStorage.key(i));
-// 	var parsed = JSON.parse(getBack);
-// }
-// console.log(parsed);
+
+function editIdea(location, qualityVar){
+	var id = $(location).parent().parent().attr("id");
+	var accessCard = JSON.parse(localStorage.getItem("Data Item"));
+	console.log("This is the String you parsed: ");
+	console.log(accessCard);
+	console.log(id);
+	accessCard.forEach(function(object) {
+		if (object.id == id) {
+			accessCard.quality = qualityVar;
+			console.log("This is the matching pair: " + accessCard.quality);
+			console.log(object.id + "is right");
+			}
+		})
+
+	// parse through stored data for object/key;value
+	//
+	// accessCard.quality = qualityVar;
+	// localStorage.setItem(return stored data)JSON.stringify(accessCard));
+}
