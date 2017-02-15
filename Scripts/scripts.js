@@ -1,8 +1,6 @@
 var data = [];
 
 $(document).ready(function(){
-	console.log("here we are")
-	console.log(localStorage);
 	getIdea();
 	printIdea();
 })
@@ -14,10 +12,7 @@ $("#submit").on('click', function(e){
 	var card = new Card(storeIdeaTitle, storeIdeaContent);
 	data.unshift(card);
 	storeIdea();
-	// getIdea();
 	printIdea();
-	console.log('localStorage', localStorage)
-	console.log(data);
 })
 
 function Card(storeIdeaTitle, storeIdeaContent) {
@@ -36,7 +31,6 @@ function getIdea(){
 	var storedData = localStorage.getItem("Data Item") || '[]';
 	var parsedData = JSON.parse(storedData);
 	data = parsedData;
-	console.log('getIdea', data);
 }
 
 function printIdea(){
@@ -52,25 +46,21 @@ data.forEach(function(object) {
 				</header>
 				<article>
 					<p>${object.body}</p>
-					<ul>
-						<li class="upvote"></li>
-						<li class="downvote"></li>
-					</ul>
-					<span class="quality">${object.quality}</span>
+					<h3>quality:<h4 class="quality">${object.quality}</h4></h3>
+					<button class="upvote"></button>
+					<button class="downvote"></button>
 				</article>
 				<hr>
 			</div>`);
 	});
-
 }
 
-// $(".new-idea").on('click','.upvote')
-// for (var i = 0; i<localStorage.length; i++){
-// 	console.log(localStorage.getItem(localStorage.key(i)));
-// }
-
-// for (var i = 0; i<localStorage.length; i++){
-// 	var getBack = localStorage.getItem(localStorage.key(i));
-// 	var parsed = JSON.parse(getBack);
-// }
-// console.log(parsed);
+$("#card-section").on('click','.upvote', function() {
+		if($(this).siblings(".quality").text() === "swill") {
+			console.log("am I here?")
+			$(this).siblings(".quality").text("plausible");
+		} else if ($(this).siblings(".quality").text() === "plausible") {
+			$(this).siblings(".quality").text("genius");
+			console.log("where am I?")
+		}
+});
