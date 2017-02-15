@@ -118,18 +118,33 @@ function editIdea(location, qualityVar){
 
 
 $('aside').on('keyup', '#search', function(){
-	searchInput = $(this).val().toLowerCase();
-	console.log(searchInput);
-	titleBoxes = $('.entry-title').text().toLowerCase();
-	bodyBoxes = $('article p').text().toLowerCase();
-	console.log(titleBoxes + bodyBoxes);
-	$('aside').filter());
+	titleBoxes = $('.entry-title').text();
+	bodyBoxes = $('article p').text();
+	var searchInput = $('#search').val().toLowerCase();
+	var re = new RegExp(searchInput, 'i');
+	if (this)
+	}
 });
+
+
+// 	console.log(searchInput);
+// 	titleBoxes = $('.entry-title').text().toLowerCase();
+// 	bodyBoxes = $('article p').text().toLowerCase();
+//
+// 	console.log(titleBoxes + bodyBoxes);
+// 	$('aside .new-idea').filter(function(){
+// 		if(titleBoxes !== searchInput){
+// 			$(".new-idea").css('background','blue');
+// 		}
+// 	});
+// });
+
 
 
 function clearInput() {
 	$('#title-input').val('');
 	$('#content-input').val('');
+}
 //NEXT STEPS
 //Clear: run similarly to editIdea function and upvote/downvote.
 //data.forEach(function(object){
