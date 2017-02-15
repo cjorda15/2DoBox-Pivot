@@ -123,13 +123,13 @@ $('aside').on('keyup', '#search', function(){
 	titleBoxes = $('.entry-title').text().toLowerCase();
 	bodyBoxes = $('article p').text().toLowerCase();
 	console.log(titleBoxes + bodyBoxes);
-	$('aside').filter());
 });
 
 
 function clearInput() {
 	$('#title-input').val('');
 	$('#content-input').val('');
+}
 //NEXT STEPS
 //Clear: run similarly to editIdea function and upvote/downvote.
 //data.forEach(function(object){
