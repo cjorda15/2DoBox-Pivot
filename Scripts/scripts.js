@@ -54,6 +54,7 @@ data.forEach(function(object) {
 				<hr>
 			</div>`);
 	});
+
 }
 
 $("#card-section").on('click','.upvote', function() {
@@ -128,3 +129,4 @@ function editIdea(location, qualityVar){
 	//
 	// accessCard.quality = qualityVar;
 	// localStorage.setItem(return stored data)JSON.stringify(accessCard));
+
