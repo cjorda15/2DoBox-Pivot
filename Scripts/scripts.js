@@ -69,12 +69,15 @@ $("#card-section").on('click','.upvote', function() {
 		editIdea(this, qualityVar);
 });
 
+$('aside').on('keyup', '#search', function(){
+	searchInput = $(this).val().toLowerCase();
+	console.log(searchInput);
+	titleBoxes = $('.entry-title').text().toLowerCase();
+	bodyBoxes = $('article p').text().toLowerCase();
+	console.log(titleBoxes + bodyBoxes);
+	$('aside').filter());
+});
 
-// function editIdea(location, qualityVar){
-// 	var id = $(location).parent().parent().attr("id");
-// 	console.log(id);
-//
-// }
 
 function clearInput() {
 	$('#title-input').val('');
