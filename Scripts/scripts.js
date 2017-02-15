@@ -70,21 +70,41 @@ $("#card-section").on('click','.upvote', function() {
 
 
 function editIdea(location, qualityVar){
-	var id = $(location).parent().parent().attr("id");
-	var accessCard = JSON.parse(localStorage.getItem("Data Item"));
+	//grab the objectId of the item you are editing
+	var objectId = $(location).parent().parent().attr("id");
+	//grab the cardData from the array.
+	var cardData = JSON.parse(localStorage.getItem("Data Item"));
 	console.log("This is the String you parsed: ");
-	console.log(accessCard);
-	console.log(id);
-	accessCard.forEach(function(object) {
-		if (object.id == id) {
-			accessCard.quality = qualityVar;
-			console.log("This is the matching pair: " + accessCard.quality);
-			console.log(object.id + "is right");
-			}
-		})
+	console.log(cardData);
+	//run a for loop to evaluate each object in the array.
+	//use if statement to determine if the the object.id and the id of div matches.
+	//if it does, return object.quality to the array.
+	cardData.forEach(function(object){
+		if (object.id == objectId){
+			object.quality = qualityVar;
+			console.log(object.quality);
+			console.log(object);
+			return object.quality;
+		}
+	});
+	console.log("Hooray?");
+	console.log(cardData);
+
+	//stringify new array.
+	//upload array to localStorage.
+	var ammendedData = JSON.stringify(cardData);
+	localStorage.setItem("Data Item", ammendedData);
+}
+
+
+
+		// accessCard.filter(function(object) {
+		// 		return object.id % id != 0 {
+		// 		});
+		// console.log(accessCard);
+		// console.log(id);
 
 	// parse through stored data for object/key;value
 	//
 	// accessCard.quality = qualityVar;
 	// localStorage.setItem(return stored data)JSON.stringify(accessCard));
-}
