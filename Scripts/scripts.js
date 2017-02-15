@@ -53,6 +53,7 @@ data.forEach(function(object) {
 				<hr>
 			</div>`);
 	});
+
 }
 
 $("#card-section").on('click','.upvote', function() {
@@ -105,7 +106,9 @@ function editQuality(location, qualityVar){
 	//upload array to localStorage.
 	 stringData= JSON.stringify(data);
 	localStorage.setItem("Data Item", stringData);
+
 }
+
 
 $("#card-section").on('click','.clear', function() {
 	var idOfRemoved = $(this).parent().parent().attr("id")
@@ -139,6 +142,10 @@ function clearInput() {
 	$('#title-input').val('');
 	$('#content-input').val('');
 }
+
+
+
+
 
 //NEXT STEPS
 //Clear: run similarly to editIdea function and upvote/downvote.
