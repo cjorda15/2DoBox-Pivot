@@ -123,6 +123,7 @@ $('aside').on('keyup', '#search', function(){
 	titleBoxes = $('.entry-title').text().toLowerCase();
 	bodyBoxes = $('article p').text().toLowerCase();
 	console.log(titleBoxes + bodyBoxes);
+	
 });
 
 
