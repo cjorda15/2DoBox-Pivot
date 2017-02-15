@@ -1,52 +1,67 @@
-// window.onload = function(){
-// 	for
-// }
+var data = [];
 
+$(document).ready(function(){
+	console.log("here we are")
+	console.log(localStorage);
+	getIdea();
+	printIdea();
+})
 
 $("#submit").on('click', function(e){
 	e.preventDefault();
 	var storeIdeaTitle = $('#title-input').val();
 	var storeIdeaContent = $('#content-input').val();
 	var card = new Card(storeIdeaTitle, storeIdeaContent);
-	var itemKey = Date.now();
-	var stringCard = JSON.stringify(card);
-	localStorage.setItem(storeIdeaTitle, stringCard);
-	console.log(card);
-	console.log(stringCard);
-
-	addIdea(storeIdeaTitle)
+	data.unshift(card);
+	storeIdea();
+	// getIdea();
+	printIdea();
+	console.log('localStorage', localStorage)
+	console.log(data);
 })
 
 function Card(storeIdeaTitle, storeIdeaContent) {
 	this.title = storeIdeaTitle;
 	this.body = storeIdeaContent;
-	this.quality = undefined;
-	this.id = $(".new-idea").length;
+	this.quality = "swill";
+	this.id = Date.now();
 }
 
-function addIdea(storeIdeaTitle){
+function storeIdea(){
+	var stringData = JSON.stringify(data);
+	localStorage.setItem("Data Item", stringData);
+}
 
-	var x = localStorage.getItem(storeIdeaTitle);
-	var object = JSON.parse(x);
-	console.log(object.title);
-	$("#card-section").prepend(`
-		<div class="new-idea">
-			<header>
-				<h1 class="entry-title">${object.title}</h1>
-				<ul>
-					<li class="clear"></li>
-				</ul>
-			</header>
-			<article>
-				<p>${object.body}</p>
-				<ul>
-					<li class="upvote"></li>
-					<li class="downvote"></li>
-				</ul>
-				<span class="quality">${object.quality}</span>
-			</article>
-			<hr>
-		</div>`)
+function getIdea(){
+	var storedData = localStorage.getItem("Data Item") || '[]';
+	var parsedData = JSON.parse(storedData);
+	data = parsedData;
+	console.log('getIdea', data);
+}
+
+function printIdea(){
+$("#card-section").empty();
+data.forEach(function(object) {
+	 	$("#card-section").append(`
+			<div class="new-idea">
+				<header>
+					<h1 class="entry-title">${object.title}</h1>
+					<ul>
+						<li class="clear"></li>
+					</ul>
+				</header>
+				<article>
+					<p>${object.body}</p>
+					<ul>
+						<li class="upvote"></li>
+						<li class="downvote"></li>
+					</ul>
+					<span class="quality">${object.quality}</span>
+				</article>
+				<hr>
+			</div>`);
+	});
+
 }
 
 // $(".new-idea").on('click','.upvote')
