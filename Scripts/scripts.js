@@ -13,6 +13,7 @@ $("#submit").on('click', function(e){
 	data.unshift(card);
 	storeIdea();
 	printIdea();
+	clearInput();
 	// console.log(card.id);
 })
 
@@ -110,8 +111,25 @@ function editIdea(location, qualityVar){
 	//upload array to localStorage.
 	 stringData= JSON.stringify(data);
 	localStorage.setItem("Data Item", stringData);
+
 }
 
+
+
+
+$('aside').on('keyup', '#search', function(){
+	searchInput = $(this).val().toLowerCase();
+	console.log(searchInput);
+	titleBoxes = $('.entry-title').text().toLowerCase();
+	bodyBoxes = $('article p').text().toLowerCase();
+	console.log(titleBoxes + bodyBoxes);
+	$('aside').filter());
+});
+
+
+function clearInput() {
+	$('#title-input').val('');
+	$('#content-input').val('');
 //NEXT STEPS
 //Clear: run similarly to editIdea function and upvote/downvote.
 //data.forEach(function(object){
@@ -129,4 +147,3 @@ function editIdea(location, qualityVar){
 	//
 	// accessCard.quality = qualityVar;
 	// localStorage.setItem(return stored data)JSON.stringify(accessCard));
-
