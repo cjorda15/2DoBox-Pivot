@@ -69,8 +69,13 @@ $("#card-section").on('click','.upvote', function() {
 });
 
 
-function editIdea(location, qualityVar){
-	var id = $(location).parent().parent().attr("id");
-	console.log(id);
+// function editIdea(location, qualityVar){
+// 	var id = $(location).parent().parent().attr("id");
+// 	var accessCard = JSON.parse(localStorage.getItem(grab stored data));
+
+	// parse through stored data for object/key;value
+
+	// accessCard.quality = qualityVar;
+	// localStorage.setItem(return stored data, JSON.stringify(accessCard));
 
 }
