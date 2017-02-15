@@ -111,8 +111,16 @@ function editIdea(location, qualityVar){
 	localStorage.setItem("Data Item", stringData);
 }
 
-
-
+//NEXT STEPS
+//Clear: run similarly to editIdea function and upvote/downvote.
+//data.forEach(function(object){
+	// if(object.id == objectId){
+	// 	object === {}
+	// 	return object;
+	// }
+	// stringData= JSON.stringify(data);
+	// localStorage.setItem("Data Item", stringData);
+// })
 
 
 
