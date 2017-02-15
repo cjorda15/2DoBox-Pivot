@@ -53,8 +53,8 @@ data.forEach(function(object) {
 				<article>
 					<p>${object.body}</p>
 					<ul>
-						<li class="upvote"></li>
-						<li class="downvote"></li>
+						<li class="upvote"><a></a></li>
+						<li class="downvote"><a></a></li>
 					</ul>
 					<span class="quality">${object.quality}</span>
 				</article>
