@@ -1,6 +1,6 @@
-window.onload = function(){
-	for
-}
+// window.onload = function(){
+// 	for
+// }
 
 
 $("#submit").on('click', function(e){
@@ -49,6 +49,7 @@ function addIdea(storeIdeaTitle){
 		</div>`)
 }
 
+// $(".new-idea").on('click','.upvote')
 // for (var i = 0; i<localStorage.length; i++){
 // 	console.log(localStorage.getItem(localStorage.key(i)));
 // }
