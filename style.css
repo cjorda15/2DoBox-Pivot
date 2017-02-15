@@ -85,6 +85,7 @@ li{
 }
 
 .clear{
+  background-color: none;
   /*background-position: 0px 0px;*/
   background-image: url("images/delete.svg")
 }
@@ -93,6 +94,7 @@ li{
 }
 
 .upvote{
+  background-color: none;
   /*background-position: -108px -50px;*/
   background-image: url("images/upvote.svg")
 }
@@ -103,6 +105,7 @@ li{
 }
 
 .downvote{
+  background-color: none;
   /*background-position: 5px 5px;*/
   background-image: url("images/downvote.svg")
 }
