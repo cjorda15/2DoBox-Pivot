@@ -32,12 +32,19 @@ input[type="text"], input[type="textarea"]{
   border-width: 1px;
   border-style: solid;
   margin-bottom: 8px;
+  width: 80%;
+  font-size: 18px;
+  padding-left: 3px;
 }
 
 input[type="textarea"]{
   margin-bottom: 0px;
   margin-top: 7px;
   height: 70px;
+}
+
+#search{
+  margin-top: 18px;
 }
 
 button{
@@ -77,6 +84,7 @@ li{
 }
 
 .clear, .upvote, .downvote {
+  background-color: none;
   /*background-image: url("images/button-sprites.svg");*/
   background-size: 100%;
   background-repeat: no-repeat;
