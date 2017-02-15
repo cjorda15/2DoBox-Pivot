@@ -85,8 +85,6 @@ $("#card-section").on('click','.downvote', function() {
 		}
 });
 
-
-
 function editQuality(location, qualityVar){
 	//grab the objectId of the item you are editing
 	var objectId = $(location).parent().parent().attr("id");
@@ -112,7 +110,6 @@ $("#card-section").on('click','.clear', function() {
 	console.log(idOfRemoved);
 	clear(this, idOfRemoved);
 	$(this).closest('.new-idea').remove();
-
 });
 
 function clear(location, idOfRemoved){
@@ -133,7 +130,6 @@ $('aside').on('keyup', '#search', function(){
 	bodyBoxes = $('article p').text().toLowerCase();
 	console.log(titleBoxes + bodyBoxes);
 });
-
 
 function clearInput() {
 	$('#title-input').val('');
