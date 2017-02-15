@@ -13,6 +13,7 @@ $("#submit").on('click', function(e){
 	data.unshift(card);
 	storeIdea();
 	printIdea();
+	clearInput();
 	// console.log(card.id);
 })
 
@@ -69,8 +70,13 @@ $("#card-section").on('click','.upvote', function() {
 });
 
 
-function editIdea(location, qualityVar){
-	var id = $(location).parent().parent().attr("id");
-	console.log(id);
+// function editIdea(location, qualityVar){
+// 	var id = $(location).parent().parent().attr("id");
+// 	console.log(id);
+//
+// }
 
+function clearInput() {
+	$('#title-input').val('');
+	$('#content-input').val('');
 }
