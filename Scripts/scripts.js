@@ -41,11 +41,11 @@ data.forEach(function(object) {
 	 	$("#card-section").append(`
 			<div id="${object.id}" class="new-idea">
 				<header>
-					<h1 class="entry-title">${object.title}</h1>
+					<h1 class="entry-title" contenteditable='true'>${object.title}</h1>
 					<button class="clear"></button>
 				</header>
 				<article>
-					<p>${object.body}</p>
+					<p class='entry-body' contenteditable='true'>${object.body}</p>
 					<h3>quality:<h4 class="quality">${object.quality}</h4></h3>
 					<button class="upvote"></button>
 					<button class="downvote"></button>
@@ -53,7 +53,11 @@ data.forEach(function(object) {
 				<hr>
 			</div>`);
 	});
+}
 
+function clearInput() {
+	$('#title-input').val('');
+	$('#content-input').val('');
 }
 
 $("#card-section").on('click','.upvote', function() {
@@ -106,9 +110,43 @@ function editQuality(location, qualityVar){
 	//upload array to localStorage.
 	 stringData= JSON.stringify(data);
 	localStorage.setItem("Data Item", stringData);
-
 }
 
+$('#card-section').on('blur','.entry-title', function(){
+	var newTitleText = $(this).text();
+	editTitleText(this, newTitleText);
+});
+
+$('#card-section').on('blur','.entry-body', function(){
+	var newBodyText = $(this).text();
+	editBodyText(this, newBodyText);
+});
+
+function editTitleText(location,newText){
+	var objectId = $(location).parent().parent().attr('id');
+	data = JSON.parse(localStorage.getItem('Data Item'));
+	data.forEach(function(object){
+		if (object.id == objectId){
+			object.title = newText;
+			return object.title;
+		}
+	});
+	stringData=JSON.stringify(data);
+	localStorage.setItem("Data Item", stringData);
+}
+
+function editBodyText(location,newText){
+	var objectId = $(location).parent().parent().attr('id');
+	data = JSON.parse(localStorage.getItem('Data Item'));
+	data.forEach(function(object){
+		if (object.id == objectId){
+			object.body = newText;
+			return object.body;
+		}
+	});
+	stringData=JSON.stringify(data);
+	localStorage.setItem("Data Item", stringData);
+}
 
 $("#card-section").on('click','.clear', function() {
 	var idOfRemoved = $(this).parent().parent().attr("id")
@@ -129,39 +167,23 @@ function clear(location, idOfRemoved){
 	localStorage.setItem("Data Item", stringData);
 }
 
-$('aside').on('keyup', '#search', function(){
-	searchInput = $(this).val().toLowerCase();
-	console.log(searchInput);
-	titleBoxes = $('.entry-title').text().toLowerCase();
-	bodyBoxes = $('article p').text().toLowerCase();
-	console.log(titleBoxes + bodyBoxes);
-	
-});
 
+$('#search').on('keyup', function(){
+	var searchInput = $('#search').val();
+	var re = new RegExp(searchInput, 'igm');
+	$('.new-idea').each(function(){
+		var title = $(this).find(".entry-title").text();
+		var body = $(this).find("article p").text();
+		var match = (title.match(re) || body.match(re));
+		if (!match) {
+			$(this).hide();
+		} else {
+			$(this).show();
+		}
+	})
+});
 
 function clearInput() {
 	$('#title-input').val('');
 	$('#content-input').val('');
 }
-
-
-
-
-
-//NEXT STEPS
-//Clear: run similarly to editIdea function and upvote/downvote.
-//data.forEach(function(object){
-	// if(object.id == objectId){
-	// 	object === {}
-	// 	return object;
-	// }
-	// stringData= JSON.stringify(data);
-	// localStorage.setItem("Data Item", stringData);
-// })
-
-
-
-	// parse through stored data for object/key;value
-	//
-	// accessCard.quality = qualityVar;
-	// localStorage.setItem(return stored data)JSON.stringify(accessCard));
