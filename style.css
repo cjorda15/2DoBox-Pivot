@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab:700');
+
 /*----Body Structure---*/
+
 body {
   font-family: "Open Sans", sans-serif;
 }
@@ -46,6 +48,7 @@ article {
   text-align: left;
 }
 
+
 /*-----Text Styling---*/
 
 h1, h3, h4 {
@@ -88,6 +91,7 @@ hr {
   font-size: 16px;
   width: 90%;
 }
+
 
 /*-----Interactivity Styling----*/
 
@@ -139,10 +143,9 @@ button {
   background-color: #045e55;
 }
 
-#submit:disabled{
+#submit:disabled {
   background-color: #5e8480;
 }
-
 
 #search {
   height: 25px;
@@ -160,37 +163,39 @@ button {
 
 .clear {
   background-image: url("images/delete.svg");
-  display:inline;
+  display: inline;
   float: right;
   margin-top: 18px;
   margin-right: 15px;
   position: relative;
 }
+
 .clear:hover {
   background-image: url("images/delete-hover.svg");
 }
 
-.upvote{
+.upvote {
   background-image: url("images/upvote.svg");
   margin-left: 15px;
 }
 
-.upvote:hover{
+.upvote:hover {
   background-image: url("images/upvote-hover.svg");
 }
 
-.downvote{
+.downvote {
   background-image: url("images/downvote.svg");
   margin-left: 10px;
 }
 
-.downvote:hover{
+.downvote:hover {
   background-image: url("images/downvote-hover.svg");
 }
 
 
 /*----Media Queries ----*/
-@media screen and (min-width: 480px){
+
+@media screen and (min-width: 480px) {
 
   aside {
     margin: 0 auto;
@@ -207,10 +212,10 @@ button {
   }
 }
 
-@media screen and (min-width: 960px){
+@media screen and (min-width: 960px) {
 
   textarea {
-    height:25px;
+    height: 25px;
   }
 
   aside {
