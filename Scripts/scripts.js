@@ -45,7 +45,7 @@ data.forEach(function(object) {
 					<button class="clear"></button>
 				</header>
 				<article>
-					<p>${object.body}</p>
+					<p contenteditable='true'>${object.body}</p>
 					<h3>quality:<h4 class="quality">${object.quality}</h4></h3>
 					<button class="upvote"></button>
 					<button class="downvote"></button>
@@ -53,7 +53,11 @@ data.forEach(function(object) {
 				<hr>
 			</div>`);
 	});
+}
 
+function clearInput() {
+	$('#title-input').val('');
+	$('#content-input').val('');
 }
 
 $("#card-section").on('click','.upvote', function() {
@@ -106,7 +110,6 @@ function editQuality(location, qualityVar){
 	//upload array to localStorage.
 	 stringData= JSON.stringify(data);
 	localStorage.setItem("Data Item", stringData);
-
 }
 
 
@@ -129,22 +132,25 @@ function clear(location, idOfRemoved){
 	localStorage.setItem("Data Item", stringData);
 }
 
-$('aside').on('keyup', '#search', function(){
-	searchInput = $(this).val().toLowerCase();
-	console.log(searchInput);
-	titleBoxes = $('.entry-title').text().toLowerCase();
-	bodyBoxes = $('article p').text().toLowerCase();
-	console.log(titleBoxes + bodyBoxes);
+$('#search').on('keyup', function(){
+	var searchInput = $('#search').val();
+	var re = new RegExp(searchInput, 'igm');
+	$('.new-idea').each(function(){
+		var title = $(this).find(".entry-title").text();
+		var body = $(this).find("article p").text();
+		var match = (title.match(re) || body.match(re));
+		if (!match) {
+			$(this).hide();
+		} else {
+			$(this).show();
+		}
+	})
 });
-
 
 function clearInput() {
 	$('#title-input').val('');
 	$('#content-input').val('');
 }
-
-
-
 
 
 //NEXT STEPS
