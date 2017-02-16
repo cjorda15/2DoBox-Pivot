@@ -76,6 +76,8 @@ hr{
   margin-left: 15px;
   text-align: left;
   display: inline-block;
+  
+
 }
 
 .entry-title{
@@ -135,6 +137,10 @@ button{
 }
 #submit:hover{
   background-color: #045e55;
+}
+
+#submit:disabled{
+  background-color: #5e8480;
 }
 
 #search{

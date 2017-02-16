@@ -5,6 +5,8 @@ $(document).ready(function(){
 	printIdea();
 })
 
+$("#title-input, #content-input").on("keyup", disableEnter);
+
 $("#submit").on('click', function(e){
 	e.preventDefault();
 	var storeIdeaTitle = $('#title-input').val();
@@ -14,6 +16,7 @@ $("#submit").on('click', function(e){
 	storeIdea();
 	printIdea();
 	clearInput();
+	disableEnter();
 	// console.log(card.id);
 })
 
@@ -170,3 +173,13 @@ $('#search').on('keyup', function(){
 		}
 	})
 });
+
+$("#title-input, #content-input").on("keyup", disableEnter);
+
+function disableEnter(){
+  if($("#title-input").val().length > 0 && $("#content-input").val().length > 0) {
+    $("#submit").prop("disabled", false);
+  } else {
+    $("#submit").prop("disabled", true);
+  }
+}
