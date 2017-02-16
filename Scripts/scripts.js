@@ -47,7 +47,7 @@ data.forEach(function(object) {
 					</ul>
 				</header>
 				<article>
-					<p>${object.body}</p>
+					<p contenteditable='true'>${object.body}</p>
 					<h3>quality:<h4 class="quality">${object.quality}</h4></h3>
 					<button class="upvote"></button>
 					<button class="downvote"></button>
@@ -55,7 +55,11 @@ data.forEach(function(object) {
 				<hr>
 			</div>`);
 	});
+}
 
+function clearInput() {
+	$('#title-input').val('');
+	$('#content-input').val('');
 }
 
 $("#card-section").on('click','.upvote', function() {
@@ -111,54 +115,33 @@ function editIdea(location, qualityVar){
 	//upload array to localStorage.
 	 stringData= JSON.stringify(data);
 	localStorage.setItem("Data Item", stringData);
-
 }
 
+$('aside').on('blur', '.new-idea', function(){
+
+})
 
 
 
-$('aside').on('keyup', '#search', function(){
-	titleBoxes = $('.entry-title').text();
-	bodyBoxes = $('article p').text();
-	var searchInput = $('#search').val().toLowerCase();
-	var re = new RegExp(searchInput, 'i');
-	if (this)
-	}
+
+
+
+
+
+
+
+
+$('#search').on('keyup', function(){
+	var searchInput = $('#search').val();
+	var re = new RegExp(searchInput, 'igm');
+	$('.new-idea').each(function(){
+		var title = $(this).find(".entry-title").text();
+		var body = $(this).find("article p").text();
+		var match = (title.match(re) || body.match(re));
+		if (!match) {
+			$(this).hide();
+		} else {
+			$(this).show();
+		}
+	})
 });
-
-
-// 	console.log(searchInput);
-// 	titleBoxes = $('.entry-title').text().toLowerCase();
-// 	bodyBoxes = $('article p').text().toLowerCase();
-//
-// 	console.log(titleBoxes + bodyBoxes);
-// 	$('aside .new-idea').filter(function(){
-// 		if(titleBoxes !== searchInput){
-// 			$(".new-idea").css('background','blue');
-// 		}
-// 	});
-// });
-
-
-
-function clearInput() {
-	$('#title-input').val('');
-	$('#content-input').val('');
-}
-//NEXT STEPS
-//Clear: run similarly to editIdea function and upvote/downvote.
-//data.forEach(function(object){
-	// if(object.id == objectId){
-	// 	object === {}
-	// 	return object;
-	// }
-	// stringData= JSON.stringify(data);
-	// localStorage.setItem("Data Item", stringData);
-// })
-
-
-
-	// parse through stored data for object/key;value
-	//
-	// accessCard.quality = qualityVar;
-	// localStorage.setItem(return stored data)JSON.stringify(accessCard));
