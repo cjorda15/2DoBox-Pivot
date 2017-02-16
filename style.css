@@ -10,8 +10,20 @@ body{
 }
 
 header{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
   font-family: "Roboto Slab", serif;
   font-weight: 700;
+}
+
+.card-title{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 main{
@@ -21,10 +33,76 @@ main{
   justify-content: center;
 }
 
+article{
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
 aside{
   text-align: center;
   width: 100%;
   justify-content: center;
+}
+
+.new-idea{
+  text-align: left;
+}
+
+h1{
+  color: #6D6E71;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+h3{
+  display: inline-block;
+  font-size: 16px;
+  justify-content: center;
+  margin-left: 25px;
+  margin-bottom: 10px
+}
+
+h4{
+  display: inline-block;
+  justify-content: center;
+  padding-left: 4px;
+  margin-bottom: 10px
+}
+
+hr{
+  width: 80%;
+}
+
+.entry-title{
+  display: inline-block;
+  margin-left: 15px;
+  text-align: left;
+  font-size: 24px;
+}
+
+.entry-body{
+  width: 90%;
+  margin-left: 30px;
+  text-align: left;
+  font-size: 16px;
+}
+
+#ideabox{
+  color: #00a79d;
+}
+
+#submit{
+  margin-left: auto;
+  margin-right: auto;
+  width: 82%;
+  height: 30px;
+  display: block;
+  background-color: #00a79d;
+  margin-top: 15px;
+  margin-bottom: 18px;
+  border-radius: 0px;
+
 }
 
 input[type="text"], input[type="textarea"]{
@@ -37,6 +115,10 @@ input[type="text"], input[type="textarea"]{
   padding-left: 3px;
 }
 
+input[type="text"]{
+  height: 25px;
+}
+
 input[type="textarea"]{
   margin-bottom: 0px;
   margin-top: 7px;
@@ -45,55 +127,31 @@ input[type="textarea"]{
 
 #search{
   margin-top: 18px;
+  height: 25px;
+  margin-bottom: 18px;
 }
 
 button{
   color: #ffffff;
   border-style: none;
-
-}
-
-h1{
-  color: #6D6E71;
-}
-
-li{
-  display: inline-block;
-  text-decoration: none;
-  list-style-type: none;
-
-}
-.entry-title{
-  margin-left: 20px;
-  text-align: left;
-  font-size: 24px;
-}
-
-#ideabox{
-  color: #00a79d;
-}
-
-#submit{
-  margin-left: auto;
-  margin-right: auto;
-  width: 175px;
-  display: block;
-  background-color: #00a79d;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  border-radius: 50px;
+  border-width: 0px;
+  outline: none;
 }
 
 .clear, .upvote, .downvote {
   background-color: none;
-  /*background-image: url("images/button-sprites.svg");*/
   background-size: 100%;
   background-repeat: no-repeat;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 .clear{
-  /*background-position: 0px 0px;*/
+  display:inline;
+  float: right;
+  margin-top: 18px;
+  /*margin-right: 30px;*/
   background-image: url("images/delete.svg")
 }
 .clear:hover{
@@ -101,21 +159,19 @@ li{
 }
 
 .upvote{
-  /*background-position: -108px -50px;*/
+  margin-left: 15px;
   background-image: url("images/upvote.svg")
 }
 
 .upvote:hover{
-  /*background-position: -108px 1px;*/
   background-image: url("images/upvote-hover.svg")
 }
 
 .downvote{
-  /*background-position: 5px 5px;*/
+  margin-left: 10px;
   background-image: url("images/downvote.svg")
 }
 
 .downvote:hover{
-  /*background-position: 5px 5px;*/
   background-image: url("images/downvote-hover.svg")
 }

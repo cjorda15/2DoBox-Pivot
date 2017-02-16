@@ -40,15 +40,15 @@ $("#card-section").html('');
 data.forEach(function(object) {
 	 	$("#card-section").append(`
 			<div id="${object.id}" class="new-idea">
-				<header>
-					<h1 class="entry-title">${object.title}</h1>
+				<header class="card-title">
+					<h1 class="entry-title" contenteditable>${object.title}</h1>
 					<button class="clear"></button>
 				</header>
 				<article>
-					<p>${object.body}</p>
-					<h3>quality:<h4 class="quality">${object.quality}</h4></h3>
+					<p class="entry-body" contenteditable>${object.body}</p>
 					<button class="upvote"></button>
 					<button class="downvote"></button>
+					<h3>quality:<h4 class="quality">${object.quality}</h4></h3>
 				</article>
 				<hr>
 			</div>`);
@@ -84,6 +84,11 @@ $("#card-section").on('click','.downvote', function() {
 			qualityVar = "swill";
 		}
 });
+
+$("#card-section").on('blur','.entry-title','.entry-body', function(){
+	var newTitle = $('.entry-title').val();
+	console.log(newTitle);
+})
 
 
 
@@ -122,7 +127,7 @@ function clear(location, idOfRemoved){
 	data = data.filter(function(object){
 			return object.id % objectId;
 		});
-	 stringData= JSON.stringify(data);
+	 stringData = JSON.stringify(data);
 	localStorage.setItem("Data Item", stringData);
 }
 
