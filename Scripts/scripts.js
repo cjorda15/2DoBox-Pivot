@@ -17,7 +17,6 @@ $("#submit").on('click', function(e){
 	printIdea();
 	clearInput();
 	disableEnter();
-	// console.log(card.id);
 })
 
 function Card(storeIdeaTitle, storeIdeaContent) {
