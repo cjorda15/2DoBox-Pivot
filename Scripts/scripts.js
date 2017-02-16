@@ -5,20 +5,6 @@ $(document).ready(function() {
     printIdea();
 })
 
-$("#title-input, #content-input").on("keyup", disableEnter);
-
-$("#submit").on('click', function(e) {
-    e.preventDefault();
-    var storeIdeaTitle = $('#title-input').val();
-    var storeIdeaContent = $('#content-input').val();
-    var card = new Card(storeIdeaTitle, storeIdeaContent);
-    data.unshift(card);
-    storeIdea();
-    printIdea();
-    clearInput();
-    disableEnter();
-})
-
 function Card(storeIdeaTitle, storeIdeaContent) {
     this.title = storeIdeaTitle;
     this.body = storeIdeaContent;
@@ -62,6 +48,78 @@ function clearInput() {
     $('#content-input').val('');
 }
 
+function editQuality(location, qualityVar) {
+    var objectId = $(location).parent().parent().attr("id");
+    data = JSON.parse(localStorage.getItem("Data Item"));
+    data.forEach(function(object) {
+        if (object.id == objectId) {
+            object.quality = qualityVar;
+            return object.quality;
+        }
+    });
+    stringData = JSON.stringify(data);
+    localStorage.setItem("Data Item", stringData);
+}
+
+function editTitleText(location, newText) {
+    var objectId = $(location).parent().parent().attr('id');
+    data = JSON.parse(localStorage.getItem('Data Item'));
+    data.forEach(function(object) {
+        if (object.id == objectId) {
+            object.title = newText;
+            return object.title;
+        }
+    });
+    stringData = JSON.stringify(data);
+    localStorage.setItem("Data Item", stringData);
+}
+
+function editBodyText(location, newText) {
+    var objectId = $(location).parent().parent().attr('id');
+    data = JSON.parse(localStorage.getItem('Data Item'));
+    data.forEach(function(object) {
+        if (object.id == objectId) {
+            object.body = newText;
+            return object.body;
+        }
+    });
+    stringData = JSON.stringify(data);
+    localStorage.setItem("Data Item", stringData);
+}
+
+function clear(location, idOfRemoved) {
+    var objectId = $(location).parent().parent().attr("id");
+    var removedId = idOfRemoved;
+    data = JSON.parse(localStorage.getItem("Data Item"));
+    data = data.filter(function(object) {
+        return object.id % objectId;
+    });
+    stringData = JSON.stringify(data);
+    localStorage.setItem("Data Item", stringData);
+}
+
+function disableEnter() {
+    if ($("#title-input").val().length > 0 && $("#content-input").val().length > 0) {
+        $("#submit").prop("disabled", false);
+    } else {
+        $("#submit").prop("disabled", true);
+    }
+}
+
+$("#title-input, #content-input").on("keyup", disableEnter);
+
+$("#submit").on('click', function(e) {
+    e.preventDefault();
+    var storeIdeaTitle = $('#title-input').val();
+    var storeIdeaContent = $('#content-input').val();
+    var card = new Card(storeIdeaTitle, storeIdeaContent);
+    data.unshift(card);
+    storeIdea();
+    printIdea();
+    clearInput();
+    disableEnter();
+})
+
 $("#card-section").on('click', '.upvote', function() {
     var qualityVar = $(this).siblings(".quality").text();
     if ($(this).siblings(".quality").text() === "swill") {
@@ -92,19 +150,6 @@ $("#card-section").on('click', '.downvote', function() {
     }
 });
 
-function editQuality(location, qualityVar) {
-    var objectId = $(location).parent().parent().attr("id");
-    data = JSON.parse(localStorage.getItem("Data Item"));
-    data.forEach(function(object) {
-        if (object.id == objectId) {
-            object.quality = qualityVar;
-            return object.quality;
-        }
-    });
-    stringData = JSON.stringify(data);
-    localStorage.setItem("Data Item", stringData);
-}
-
 $('#card-section').on('blur', '.entry-title', function(e) {
     var newTitleText = $(this).text();
     editTitleText(this, newTitleText);
@@ -115,31 +160,6 @@ $('#card-section').on('blur', '.entry-body', function() {
     editBodyText(this, newBodyText);
 });
 
-function editTitleText(location, newText) {
-    var objectId = $(location).parent().parent().attr('id');
-    data = JSON.parse(localStorage.getItem('Data Item'));
-    data.forEach(function(object) {
-        if (object.id == objectId) {
-            object.title = newText;
-            return object.title;
-        }
-    });
-    stringData = JSON.stringify(data);
-    localStorage.setItem("Data Item", stringData);
-}
-
-function editBodyText(location, newText) {
-    var objectId = $(location).parent().parent().attr('id');
-    data = JSON.parse(localStorage.getItem('Data Item'));
-    data.forEach(function(object) {
-        if (object.id == objectId) {
-            object.body = newText;
-            return object.body;
-        }
-    });
-    stringData = JSON.stringify(data);
-    localStorage.setItem("Data Item", stringData);
-}
 
 $("#card-section").on('click', '.clear', function() {
     var idOfRemoved = $(this).parent().parent().attr("id")
@@ -147,16 +167,6 @@ $("#card-section").on('click', '.clear', function() {
     $(this).closest('.new-idea').remove();
 });
 
-function clear(location, idOfRemoved) {
-    var objectId = $(location).parent().parent().attr("id");
-    var removedId = idOfRemoved;
-    data = JSON.parse(localStorage.getItem("Data Item"));
-    data = data.filter(function(object) {
-        return object.id % objectId;
-    });
-    stringData = JSON.stringify(data);
-    localStorage.setItem("Data Item", stringData);
-}
 
 $('#search').on('keyup', function() {
     var searchInput = $('#search').val();
@@ -174,11 +184,3 @@ $('#search').on('keyup', function() {
 });
 
 $("#title-input, #content-input").on("keyup", disableEnter);
-
-function disableEnter() {
-    if ($("#title-input").val().length > 0 && $("#content-input").val().length > 0) {
-        $("#submit").prop("disabled", false);
-    } else {
-        $("#submit").prop("disabled", true);
-    }
-}
