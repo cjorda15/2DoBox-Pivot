@@ -46,9 +46,9 @@ data.forEach(function(object) {
 				</header>
 				<article>
 					<p class='entry-body' contenteditable='true'>${object.body}</p>
-					<h3>quality:<h4 class="quality">${object.quality}</h4></h3>
 					<button class="upvote"></button>
 					<button class="downvote"></button>
+					<h3>quality:<h4 class="quality">${object.quality}</h4></h3>
 				</article>
 				<hr>
 			</div>`);
@@ -141,7 +141,6 @@ function editBodyText(location,newText){
 
 $("#card-section").on('click','.clear', function() {
 	var idOfRemoved = $(this).parent().parent().attr("id")
-	console.log(idOfRemoved);
 	clear(this, idOfRemoved);
 	$(this).closest('.new-idea').remove();
 });
@@ -171,22 +170,3 @@ $('#search').on('keyup', function(){
 		}
 	})
 });
-
-
-//NEXT STEPS
-//Clear: run similarly to editIdea function and upvote/downvote.
-//data.forEach(function(object){
-	// if(object.id == objectId){
-	// 	object === {}
-	// 	return object;
-	// }
-	// stringData= JSON.stringify(data);
-	// localStorage.setItem("Data Item", stringData);
-// })
-
-
-
-	// parse through stored data for object/key;value
-	//
-	// accessCard.quality = qualityVar;
-	// localStorage.setItem(return stored data)JSON.stringify(accessCard));
