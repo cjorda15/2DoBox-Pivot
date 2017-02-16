@@ -106,9 +106,10 @@ function editQuality(location, qualityVar){
 	localStorage.setItem("Data Item", stringData);
 }
 
-$('#card-section').on('blur','.entry-title', function(){
+$('#card-section').on('blur','.entry-title', function(e){
 	var newTitleText = $(this).text();
 	editTitleText(this, newTitleText);
+}
 });
 
 $('#card-section').on('blur','.entry-body', function(){
