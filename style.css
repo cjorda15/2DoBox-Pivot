@@ -1,12 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab:700');
-
+/*----Body Structure---*/
 body{
   font-family: "Open Sans", sans-serif;
-}
-
-.page-wrapper{
-  display: flex;
-  flex-direction: column;
 }
 
 header{
@@ -15,6 +10,28 @@ header{
   margin-right: auto;
   font-family: "Roboto Slab", serif;
   font-weight: 700;
+}
+
+main, aside{
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+main{
+  background-color: #e5f3f2;
+
+}
+
+article{
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.page-wrapper{
+  display: flex;
+  flex-direction: column;
 }
 
 .card-title{
@@ -26,84 +43,52 @@ header{
   text-overflow: ellipsis;
 }
 
-main{
-  background-color: #e5f3f2;
-  text-align: center;
-  width: 100%;
-  justify-content: center;
-}
-
-article{
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-}
-
-aside{
-  text-align: center;
-  width: 100%;
-  justify-content: center;
-}
-
 .new-idea{
   text-align: left;
 }
 
-h1{
+/*-----Text Styling---*/
+
+h1, h3, h4{
   color: #6D6E71;
   font-size: 28px;
   margin-bottom: 10px;
 }
 
-h3{
+h3, h4{
   display: inline-block;
   font-size: 16px;
-  justify-content: center;
+}
+
+h3{
   margin-left: 25px;
-  margin-bottom: 10px
 }
 
 h4{
-  display: inline-block;
-  justify-content: center;
   padding-left: 4px;
-  margin-bottom: 10px
 }
 
 hr{
   width: 80%;
 }
 
-.entry-title{
-  display: inline-block;
+.entry-title, .entry-body{
   margin-left: 15px;
   text-align: left;
+  display: inline-block;
+}
+
+.entry-title{
   font-size: 24px;
 }
 
 .entry-body{
+  color: #939598;
   width: 90%;
-  margin-left: 15px;
-  text-align: left;
   font-size: 16px;
 }
 
-#ideabox{
-  color: #00a79d;
-}
-
-#submit{
-  margin-left: auto;
-  margin-right: auto;
-  width: 82%;
-  height: 30px;
-  display: block;
-  background-color: #00a79d;
-  margin-top: 15px;
-  margin-bottom: 18px;
-  border-radius: 0px;
-
-}
+/*-----Interactivity Styling----*/
 
 input[type="text"], input[type="textarea"]{
   border-color: #939598;
@@ -125,12 +110,6 @@ input[type="textarea"]{
   height: 70px;
 }
 
-#search{
-  margin-top: 18px;
-  height: 25px;
-  margin-bottom: 18px;
-}
-
 button{
   color: #ffffff;
   border-style: none;
@@ -139,12 +118,34 @@ button{
   outline: none;
 }
 
+#ideabox{
+  color: #00a79d;
+}
+
+#submit{
+  margin-left: auto;
+  margin-right: auto;
+  width: 82%;
+  height: 30px;
+  display: block;
+  background-color: #00a79d;
+  margin-top: 15px;
+  margin-bottom: 18px;
+  border-radius: 0px;
+}
+
+#search{
+  margin-top: 18px;
+  height: 25px;
+  margin-bottom: 18px;
+}
+
 .clear, .upvote, .downvote {
   background-color: none;
   background-size: 100%;
   background-repeat: no-repeat;
-  width: 20px;
   height: 20px;
+  width: 20px;
 }
 
 .clear{
@@ -177,17 +178,9 @@ button{
   background-image: url("images/downvote-hover.svg")
 }
 
+
+/*----Media Queries ----*/
 @media screen and (min-width: 600px)
 {
-
-  .clear, .upvote, .downvote {
-    background-color: none;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    width: 25px;
-    height: 25px;
-  }
-
-
 
 }
