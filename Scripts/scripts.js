@@ -117,17 +117,6 @@ function editIdea(location, qualityVar){
 	localStorage.setItem("Data Item", stringData);
 }
 
-$('aside').on('blur', '.new-idea', function(){
-
-})
-
-
-
-
-
-
-
-
 
 
 
