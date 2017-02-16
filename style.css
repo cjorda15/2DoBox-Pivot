@@ -1,189 +1,253 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab:700');
 /*----Body Structure---*/
-body{
+body {
   font-family: "Open Sans", sans-serif;
 }
 
-header{
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+header {
   font-family: "Roboto Slab", serif;
   font-weight: 700;
-}
-
-main, aside{
-  width: 100%;
-  justify-content: center;
-  text-align: center;
-}
-
-main{
-  background-color: #e5f3f2;
-
-}
-
-article{
   margin-left: auto;
   margin-right: auto;
   width: 90%;
 }
 
-.page-wrapper{
+main, aside {
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+main {
+  background-color: #e5f3f2;
+}
+
+article {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.page-wrapper {
   display: flex;
   flex-direction: column;
 }
 
-.card-title{
-  width: 90%;
+.card-title {
   margin-left: auto;
   margin-right: auto;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 90%;
 }
 
-.new-idea{
+.new-idea {
   text-align: left;
 }
 
 /*-----Text Styling---*/
 
-h1, h3, h4{
+h1, h3, h4 {
   color: #6D6E71;
   font-size: 28px;
   margin-bottom: 10px;
 }
 
-h3, h4{
+h3, h4 {
   display: inline-block;
   font-size: 16px;
 }
 
-h3{
+h3 {
   margin-left: 25px;
 }
 
-h4{
+h4 {
   padding-left: 4px;
 }
 
-hr{
+hr {
   width: 80%;
 }
 
-.entry-title, .entry-body{
+.entry-title, .entry-body {
   margin-left: 15px;
+  max-width: 15ch;
   text-align: left;
-  display: inline-block;
 }
 
-.entry-title{
+.entry-title {
+  display: inline-block;
   font-size: 24px;
 }
 
-.entry-body{
+.entry-body {
   color: #939598;
-  width: 90%;
+  display: block;
   font-size: 16px;
+  width: 90%;
 }
 
 /*-----Interactivity Styling----*/
 
-input[type="text"], input[type="textarea"]{
+input[type="text"], textarea {
   border-color: #939598;
-  border-width: 1px;
   border-style: solid;
-  margin-bottom: 8px;
-  width: 80%;
+  border-width: 1px;
   font-size: 18px;
+  margin-bottom: 8px;
   padding-left: 3px;
+  width: 80%;
 }
 
-input[type="text"]{
+input[type="text"] {
   height: 25px;
 }
 
-input[type="textarea"]{
+textarea {
   margin-bottom: 0px;
   margin-top: 7px;
   height: 70px;
 }
 
-button{
-  color: #ffffff;
+button {
   border-style: none;
   border-radius: 50px;
   border-width: 0px;
+  color: #ffffff;
   outline: none;
 }
 
-#ideabox{
+#ideabox {
   color: #00a79d;
 }
 
-#submit{
+#submit {
+  background-color: #00a79d;
+  border-radius: 0px;
+  display: block;
+  height: 35px;
+  margin-bottom: 18px;
   margin-left: auto;
   margin-right: auto;
-  width: 82%;
-  height: 30px;
-  display: block;
-  background-color: #00a79d;
   margin-top: 15px;
-  margin-bottom: 18px;
-  border-radius: 0px;
+  width: 82%;
 }
-#submit:hover{
+
+#submit:hover {
   background-color: #045e55;
 }
 
-#search{
-  margin-top: 18px;
+#search {
   height: 25px;
   margin-bottom: 18px;
+  margin-top: 18px;
 }
 
 .clear, .upvote, .downvote {
   background-color: none;
-  background-size: 100%;
   background-repeat: no-repeat;
+  background-size: 100%;
   height: 20px;
   width: 20px;
 }
 
-.clear{
+.clear {
+  background-image: url("images/delete.svg");
   display:inline;
-  position: relative;
   float: right;
   margin-top: 18px;
   margin-right: 15px;
-  background-image: url("images/delete.svg")
+  position: relative;
 }
-.clear:hover{
-  background-image: url("images/delete-hover.svg")
+.clear:hover {
+  background-image: url("images/delete-hover.svg");
 }
 
 .upvote{
+  background-image: url("images/upvote.svg");
   margin-left: 15px;
-  background-image: url("images/upvote.svg")
 }
 
 .upvote:hover{
-  background-image: url("images/upvote-hover.svg")
+  background-image: url("images/upvote-hover.svg");
 }
 
 .downvote{
+  background-image: url("images/downvote.svg");
   margin-left: 10px;
-  background-image: url("images/downvote.svg")
 }
 
 .downvote:hover{
-  background-image: url("images/downvote-hover.svg")
+  background-image: url("images/downvote-hover.svg");
 }
 
 
 /*----Media Queries ----*/
-@media screen and (min-width: 600px)
-{
+@media screen and (min-width: 480px){
 
+  aside {
+    margin: 0 auto;
+    width: 500px;
+  }
+
+  form {
+    margin: 0 auto;
+    width: 500px;
+  }
+
+  .entry-title, .entry-body {
+    max-width: 25ch;
+  }
+}
+
+@media screen and (min-width: 960px){
+
+  textarea {
+    height:25px;
+  }
+
+  aside {
+    width: 700px;
+    margin 0 auto;
+  }
+
+  form {
+    width: 700px;
+    margin: 0 auto;
+  }
+
+  hr {
+    width: 100%;
+  }
+
+  div header, div article {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  #search {
+    width: 80%;
+  }
+
+  .entry-title, .entry-body {
+    max-width: 35ch;
+  }
+
+  .entry-title, .entry-body, .upvote {
+    margin-left: 0;
+  }
+
+  .new-idea {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .logo {
+    font-size: 42px;
+    margin-bottom: 28px;
+  }
 }
