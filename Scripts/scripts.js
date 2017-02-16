@@ -108,7 +108,6 @@ function editQuality(location, qualityVar) {
 $('#card-section').on('blur', '.entry-title', function(e) {
     var newTitleText = $(this).text();
     editTitleText(this, newTitleText);
-}
 });
 
 $('#card-section').on('blur', '.entry-body', function() {
