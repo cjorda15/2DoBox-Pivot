@@ -20,20 +20,20 @@ searchTest(driver_chr);
 
 function searchTest(driver) {
   driver.get('https://cjorda15.github.io/2DoBox-Pivot/');
-  driver.findElement(By.id('title-input')).sendKeys("woof");
+  driver.findElement(By.id('title-input')).sendKeys("Code");
   driver.findElement(By.id('content-input')).sendKeys("Now!");
   driver.findElement(By.id("submit")).click();
 
   driver.sleep(2000).then(function() {
     driver.findElement(By.className('entry-body')).getText().then(function(title) {
-        // driver.findElement(By.className('title-body')).getText().then(function(text){
-      if(title === 'Now!') {
+      driver.findElement(By.className('entry-title')).getText().then(function(text){
+      if(title === 'Now!' && text==="Code") {
         console.log('Test passed');
       } else {
         console.log('Test failed');
       }
     });
   });
-// });
-  //  driver.quit();
+ });
+  driver.quit();
 }
