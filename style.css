@@ -48,6 +48,11 @@ article {
   text-align: left;
 }
 
+.false {
+  background-color: slategrey;
+}
+
+
 
 /*-----Text Styling---*/
 
@@ -121,6 +126,15 @@ button {
   border-width: 0px;
   color: #ffffff;
   outline: none;
+}
+
+.completed-btn {
+float: right;
+margin-top: 20px;
+}
+
+.completed-btn:active {
+background-color: red;
 }
 
 #ideabox {
