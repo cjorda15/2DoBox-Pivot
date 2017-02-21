@@ -115,7 +115,7 @@ driver.findElement(By.className('quality')).getText().then(function(text){
   }else{
     console.log('Test 4 failed')
   }
-  driver.sleep(4000)
+  driver.sleep(500)
 })
 }
 
@@ -167,14 +167,14 @@ function checkSearch(driver){
   driver.findElement(By.id('content-input')).sendKeys("Always");
   driver.findElement(By.id('submit')).click();
   driver.findElement(By.id('search')).sendKeys("Gra")
-  driver.sleep(3000)
+  driver.sleep(500)
   driver.findElement(By.className("entry-title")).getText().then(function(title){
   if(title==="Grateful"){
     console.log("Test 8 passed")
   }else{
     console.log("Test 8 failed")
   }
-  driver.sleep(3000)
+  driver.sleep(500)
 
   driver.quit();
 
