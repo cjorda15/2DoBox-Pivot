@@ -8,8 +8,9 @@ $(document).ready(function() {
 function Card(storeIdeaTitle, storeIdeaContent) {
     this.title = storeIdeaTitle;
     this.body = storeIdeaContent;
-    this.quality = "swill";
+    this.quality = "Normal";
     this.id = Date.now();
+    this.complete = "no"
 }
 
 function storeIdea() {
@@ -27,7 +28,7 @@ function printIdea() {
     $("#card-section").html('');
     data.forEach(function(object) {
         $("#card-section").append(`
-			<div id="${object.id}" class="new-idea">
+			<div id="${object.id}" class="new-idea ${object.complete}">
 				<header>
 					<h1 class="entry-title" contenteditable='true'>${object.title}</h1>
 					<button class="clear"></button>
@@ -36,7 +37,8 @@ function printIdea() {
 					<p class='entry-body' contenteditable='true'>${object.body}</p>
 					<button class="upvote"></button>
 					<button class="downvote"></button>
-					<h3>quality:<h4 class="quality">${object.quality}</h4></h3>
+					<h3>Importance:<h4 class="quality">${object.quality}</h4></h3>
+          <button class="completed-btn">Completed</button>
 				</article>
 				<hr>
 			</div>`);
@@ -122,33 +124,71 @@ $("#submit").on('click', function(e) {
 
 $("#card-section").on('click', '.upvote', function() {
     var qualityVar = $(this).siblings(".quality").text();
-    if ($(this).siblings(".quality").text() === "swill") {
-        $(this).siblings(".quality").text("plausible");
-        qualityVar = "plausible";
+    if ($(this).siblings(".quality").text() === "None") {
+        $(this).siblings(".quality").text("Low");
+        qualityVar = "Low";
         editQuality(this, qualityVar);
-    } else if ($(this).siblings(".quality").text() === "plausible") {
-        $(this).siblings(".quality").text("genius");
-        qualityVar = "genius"
+    } else if ($(this).siblings(".quality").text() === "Low") {
+        $(this).siblings(".quality").text("Normal");
+        qualityVar = "Normal"
+    } else if ($(this).siblings(".quality").text() === "Normal") {
+        $(this).siblings(".quality").text("High");
+        qualityVar = "High"
+    } else if ($(this).siblings(".quality").text() === "High") {
+        $(this).siblings(".quality").text("Critical");
+        qualityVar = "Critical"
         editQuality(this, qualityVar);
-    } else if ($(this).siblings(".quality").text() === "genius") {
-        qualityVar = "genius";
+    } else if ($(this).siblings(".quality").text() === "Critical") {
+        qualityVar = "Critical";
     }
 });
 
 $("#card-section").on('click', '.downvote', function() {
     var qualityVar = $(this).siblings(".quality").text();
-    if ($(this).siblings(".quality").text() === "genius") {
-        $(this).siblings(".quality").text("plausible");
-        qualityVar = "plausible";
+    if ($(this).siblings(".quality").text() === "Critical") {
+        $(this).siblings(".quality").text("High");
+        qualityVar = "High";
         editQuality(this, qualityVar);
-    } else if ($(this).siblings(".quality").text() === "plausible") {
-        $(this).siblings(".quality").text("swill");
-        qualityVar = "swill";
+    } else if ($(this).siblings(".quality").text() === "High") {
+        $(this).siblings(".quality").text("Normal");
+        qualityVar = "Normal";
+    } else if ($(this).siblings(".quality").text() === "Normal") {
+        $(this).siblings(".quality").text("Low");
+        qualityVar = "Low";
+    } else if ($(this).siblings(".quality").text() === "Low") {
+        $(this).siblings(".quality").text("None");
+        qualityVar = "None";
         editQuality(this, qualityVar);
-    } else if ($(this).siblings(".quality").text() === "plausible") {
-        qualityVar = "swill";
+    } else if ($(this).siblings(".quality").text() === "None") {
+        qualityVar = "None";
     }
 });
+function editComplete(location, completeVar) {
+  var objectId = $(location).parent().parent().attr("id");
+  data = JSON.parse(localStorage.getItem("Data Item"));
+  data.forEach(function(object) {
+    if (object.id == objectId) {
+      object.complete = completeVar;
+      return object.complete;
+    }
+  });
+  stringData = JSON.stringify(data);
+  localStorage.setItem("Data Item", stringData);
+}
+
+$("#card-section").on('click', '.completed-btn', function(){
+
+  var $card = $(this).parent().parent()
+  if ($card.hasClass('no')){
+    $card.addClass('yes').removeClass('no')
+      editComplete(this, "yes")
+  }
+  else if ($card.hasClass('yes')){
+    $card.addClass('no').removeClass('yes')
+    editComplete(this, "no")
+}
+
+})
 
 $('#card-section').on('blur', '.entry-title', function(e) {
     var newTitleText = $(this).text();

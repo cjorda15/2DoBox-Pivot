@@ -48,6 +48,11 @@ article {
   text-align: left;
 }
 
+.false {
+  background-color: slategrey;
+}
+
+
 
 /*-----Text Styling---*/
 
@@ -123,6 +128,15 @@ button {
   outline: none;
 }
 
+.completed-btn {
+float: right;
+margin-top: 20px;
+}
+
+.completed-btn:active {
+background-color: red;
+}
+
 #ideabox {
   color: #00a79d;
 }
@@ -192,6 +206,14 @@ button {
   background-image: url("images/downvote-hover.svg");
 }
 
+
+.no {
+background-color: white
+}
+
+.yes{
+  background-color: purple;
+}
 
 /*----Media Queries ----*/
 
