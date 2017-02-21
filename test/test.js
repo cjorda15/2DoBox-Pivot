@@ -89,15 +89,14 @@ function deleteTest(driver){
   driver.findElement(By.id('content-input')).sendKeys("shout!");
   driver.findElement(By.id("submit")).click();
   driver.sleep(2000).then(function() {
-    driver.findElement(By.id('title-input')).sendKeys("panda");
-    driver.findElement(By.id('content-input')).sendKeys("dog!");
-    driver.sleep(500)
-    driver.findElement(By.id("submit")).click();
-  driver.findElement(By.className("clear")).click();
+  driver.findElement(By.id('title-input')).sendKeys("panda");
+  driver.findElement(By.id('content-input')).sendKeys("dog!");
+  driver.sleep(500)
+  driver.findElement(By.id("submit")).click();
   driver.findElement(By.className("clear")).click();
   driver.findElement(By.className('entry-body')).getText().then(function(text) {
   driver.findElement(By.className('entry-title')).getText().then(function(title){
-      if(text === 'dog!' && title==="panda") {
+      if(text === 'shout!' && title==="Wombat") {
         console.log('Test 3 passed');
       } else {
         console.log('Test 3 failed');
