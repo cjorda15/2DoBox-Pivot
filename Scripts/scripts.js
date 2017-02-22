@@ -285,4 +285,9 @@ $('#listAll').on('click',function(){
 $("h4").parents(".new-idea").css('display','block')
 })
 
+$('#show-completed').on('click', function(){
+  $('.yes').css('display', 'block')
+  showTen()
+})
+
 $("#title-input, #content-input").on("keyup", disableEnter);
