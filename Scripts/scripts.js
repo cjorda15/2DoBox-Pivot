@@ -140,9 +140,11 @@ $("#card-section").on('click', '.upvote', function() {
     } else if ($(this).siblings(".quality").text() === "Low") {
         $(this).siblings(".quality").text("Normal");
         qualityVar = "Normal"
+        editQuality(this, qualityVar);
     } else if ($(this).siblings(".quality").text() === "Normal") {
         $(this).siblings(".quality").text("High");
         qualityVar = "High"
+        editQuality(this, qualityVar);
     } else if ($(this).siblings(".quality").text() === "High") {
         $(this).siblings(".quality").text("Critical");
         qualityVar = "Critical"
@@ -161,9 +163,11 @@ $("#card-section").on('click', '.downvote', function() {
     } else if ($(this).siblings(".quality").text() === "High") {
         $(this).siblings(".quality").text("Normal");
         qualityVar = "Normal";
+        editQuality(this, qualityVar);
     } else if ($(this).siblings(".quality").text() === "Normal") {
         $(this).siblings(".quality").text("Low");
         qualityVar = "Low";
+        editQuality(this, qualityVar);
     } else if ($(this).siblings(".quality").text() === "Low") {
         $(this).siblings(".quality").text("None");
         qualityVar = "None";
@@ -279,6 +283,11 @@ showTen()
 
 $('#listAll').on('click',function(){
 $("h4").parents(".new-idea").css('display','block')
+})
+
+$('#show-completed').on('click', function(){
+  $('.yes').css('display', 'block')
+  showTen()
 })
 
 $("#title-input, #content-input").on("keyup", disableEnter);
