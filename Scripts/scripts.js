@@ -259,35 +259,41 @@ $('#none').on('click',function(e){
 e.preventDefault()
 $("h4").parents(".new-idea").css('display','none')
 $("h4:contains('None')").parents(".new-idea").css('display','block')
+showTen()
 })
 
 $('#low').on('click',function(e){
 e.preventDefault()
 $("h4").parents(".new-idea").css('display','none')
 $("h4:contains('Low')").parents(".new-idea").css('display','block')
+showTen()
 })
 
 $('#normal').on('click',function(e){
 e.preventDefault()
 $("h4").parents(".new-idea").css('display','none')
 $("h4:contains('Normal')").parents(".new-idea").css('display','block')
+showTen()
 })
 
 $('#high').on('click',function(e){
 e.preventDefault()
 $("h4").parents(".new-idea").css('display','none')
 $("h4:contains('High')").parents(".new-idea").css('display','block')
+showTen()
 })
 
 $('#critical').on('click',function(e){
 e.preventDefault()
 $("h4").parents(".new-idea").css('display','none')
 $("h4:contains('Critical')").parents(".new-idea").css('display','block')
+showTen()
 })
 
 $('#all').on('click',function(e){
 e.preventDefault()
 $("h4").parents(".new-idea").css('display','block')
+showTen()
 })
 
 $("#title-input, #content-input").on("keyup", disableEnter);

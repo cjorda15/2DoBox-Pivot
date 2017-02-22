@@ -21,7 +21,8 @@ main, aside {
 }
 
 main {
-  background-color: #e5f3f2;
+  background-color: #FFF686;
+
 }
 
 article {
@@ -48,6 +49,9 @@ article {
   text-align: left;
 }
 
+.importance-btns {
+  margin-bottom: 20px;
+}
 
 
 
@@ -130,8 +134,12 @@ button {
   outline: none;
 }
 
+.completed-btn {
+  background-color: 
+}
+
 #all,#none,#low,#normal,#high,#critical{
-  background-color: #5e8480;
+  background-color: #6369FF;
   border:none;
   color:#ffffff;
   margin:3px;
@@ -148,11 +156,11 @@ background-color: red;
 }
 
 #ideabox {
-  color: #00a79d;
+  color: #5C5FFF;
 }
 
 #submit {
-  background-color: #00a79d;
+  background-color: #6369FF;
   border-radius: 0px;
   display: block;
   height: 35px;
@@ -168,7 +176,7 @@ background-color: red;
 }
 
 #submit:disabled {
-  background-color: #5e8480;
+  background-color: #6369FF;
 }
 
 #search {
@@ -177,12 +185,14 @@ background-color: red;
   margin-top: 18px;
 }
 
-.clear, .upvote, .downvote {
-  background-color: none;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: 20px;
-  width: 20px;
+.clear,
+.upvote,
+.downvote {
+background-color: none;
+background-repeat: no-repeat;
+background-size: 100%;
+height: 20px;
+width: 20px;
 }
 
 .clear {
