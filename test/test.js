@@ -110,7 +110,7 @@ function deleteTest(driver){
  function checkUpVote(driver){
 driver.findElement(By.className('upvote')).click();
 driver.findElement(By.className('quality')).getText().then(function(text){
-  if(text ==='plausible'){
+  if(text ==='High'){
     console.log('Test 4 passed')
   }else{
     console.log('Test 4 failed')
@@ -124,7 +124,7 @@ driver.findElement(By.className('upvote')).click();
 driver.findElement(By.className('upvote')).click();
 driver.findElement(By.className('upvote')).click();
 driver.findElement(By.className('quality')).getText().then(function(text){
- if(text ==='genius'){
+ if(text ==='Critical'){
    console.log('Test 5 passed')
  }else{
    console.log('Test 5 failed')
@@ -136,7 +136,7 @@ driver.findElement(By.className('quality')).getText().then(function(text){
 function checkDownVote(driver){
   driver.findElement(By.className('downvote')).click();
   driver.findElement(By.className('quality')).getText().then(function(text){
-    if(text ==='plausible'){
+    if(text ==='High'){
       console.log('Test 6 passed')
     }else{
       console.log('Test 6 failed')
@@ -153,7 +153,7 @@ function checkDownVotes(driver){
   driver.findElement(By.className('downvote')).click();
   driver.findElement(By.className('downvote')).click();
   driver.findElement(By.className('quality')).getText().then(function(text){
-    if(text ==='swill'){
+    if(text ==='None'){
       console.log('Test 7 passed')
     }else{
       console.log('Test 7 failed')
@@ -167,14 +167,14 @@ function checkSearch(driver){
   driver.findElement(By.id('content-input')).sendKeys("Always");
   driver.findElement(By.id('submit')).click();
   driver.findElement(By.id('search')).sendKeys("Gra")
-  driver.sleep(3000)
+  driver.sleep(500)
   driver.findElement(By.className("entry-title")).getText().then(function(title){
   if(title==="Grateful"){
     console.log("Test 8 passed")
   }else{
     console.log("Test 8 failed")
   }
-  driver.sleep(3000)
+  driver.sleep(500)
 
   driver.quit();
 

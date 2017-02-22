@@ -48,9 +48,6 @@ article {
   text-align: left;
 }
 
-.false {
-  background-color: slategrey;
-}
 
 
 
@@ -97,6 +94,11 @@ hr {
   width: 90%;
 }
 
+#importance-text{
+  font-size: 14px;
+  font-weight: 200;
+  font-family: sans-serif;
+}
 
 /*-----Interactivity Styling----*/
 
@@ -126,6 +128,14 @@ button {
   border-width: 0px;
   color: #ffffff;
   outline: none;
+}
+
+#all,#none,#low,#normal,#high,#critical{
+  background-color: #5e8480;
+  border:none;
+  color:#ffffff;
+  margin:3px;
+  display: inline-block;
 }
 
 .completed-btn {
