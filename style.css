@@ -54,7 +54,6 @@ article {
 }
 
 
-
 /*-----Text Styling---*/
 
 h1, h3, h4 {
@@ -135,23 +134,29 @@ button {
 }
 
 .completed-btn {
-  background-color: 
+  background-color:
 }
 
 #all,#none,#low,#normal,#high,#critical{
   background-color: #6369FF;
   border:none;
   color:#ffffff;
-  margin:3px;
+  margin: 10px 20px 0 0;
   display: inline-block;
+
+}
+#critical {
+  margin-right: 0px;
 }
 
 .completed-btn {
 float: right;
 margin-top: 20px;
+background-color: #6369FF;
 }
 
-.completed-btn:active {
+.completed-btn:active,
+.completed-btn:hover {
 background-color: red;
 }
 
