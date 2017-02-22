@@ -296,4 +296,8 @@ $("h4").parents(".new-idea").css('display','block')
 showTen()
 })
 
+$('#listAll').on('click',function(){
+$("h4").parents(".new-idea").css('display','block')
+})
+
 $("#title-input, #content-input").on("keyup", disableEnter);
