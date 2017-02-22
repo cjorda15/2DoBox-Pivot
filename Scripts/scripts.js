@@ -57,7 +57,7 @@ function printIdea() {
 					<button class="upvote"></button>
 					<button class="downvote"></button>
 					<h3>Importance:<h4 class="quality">${object.quality}</h4></h3>
-          <button class="completed-btn">Completed</button>
+          <button class="completed-btn">completed</button>
 				</article>
 				<hr>
 			</div>`);
@@ -294,6 +294,10 @@ $('#all').on('click',function(e){
 e.preventDefault()
 $("h4").parents(".new-idea").css('display','block')
 showTen()
+})
+
+$('#listAll').on('click',function(){
+$("h4").parents(".new-idea").css('display','block')
 })
 
 $("#title-input, #content-input").on("keyup", disableEnter);
