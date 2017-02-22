@@ -24,6 +24,25 @@ function getIdea() {
     data = parsedData;
 }
 
+// function displayLength() {
+//   var  storedLength = localStorage.getItem("Data Item") || '[]';
+//    var  parsedLength = JSON.parse(storedLength)
+//    var newTen = parsedLength.prop.slice( 10 ).css('display', 'none')
+//    console.log(parsedLength.length)
+//
+//
+//
+// // parsedLength.prop.slice( 10 ).css("display", "none")
+//   // {
+//   //   if(parsedLength[i]>10){
+//   //   parsedLength.slice(10).css("display", "none")
+//   //   }
+//   //  }
+//
+//  }
+
+// displayLength()
+
 function printIdea() {
     $("#card-section").html('');
     data.forEach(function(object) {
@@ -42,6 +61,7 @@ function printIdea() {
 				</article>
 				<hr>
 			</div>`);
+      showTen();
     });
 }
 
@@ -98,7 +118,15 @@ function clear(location, idOfRemoved) {
     });
     stringData = JSON.stringify(data);
     localStorage.setItem("Data Item", stringData);
+
+    //  $('.new-idea')attr("display", "none").slice(0, 1).css("display","inherit")
 }
+
+function showTen() {
+  $(".new-idea").slice(10).css("display", "none");
+}
+
+showTen()
 
 function disableEnter() {
     if ($("#title-input").val().length > 0 && $("#content-input").val().length > 0) {
@@ -177,7 +205,6 @@ function editComplete(location, completeVar) {
 }
 
 $("#card-section").on('click', '.completed-btn', function(){
-
   var $card = $(this).parent().parent()
   if ($card.hasClass('no')){
     $card.addClass('yes').removeClass('no')
@@ -186,9 +213,7 @@ $("#card-section").on('click', '.completed-btn', function(){
   else if ($card.hasClass('yes')){
     $card.addClass('no').removeClass('yes')
     editComplete(this, "no")
-}
-
-})
+}})
 
 $('#card-section').on('blur', '.entry-title', function(e) {
     var newTitleText = $(this).text();
@@ -201,12 +226,19 @@ $('#card-section').on('blur', '.entry-body', function() {
 });
 
 
+function list(){
+  $('.new-idea').slice(0,10).css("display","block")
+  $(".new-idea").slice(10).css("display", "none");}
+
+
 $("#card-section").on('click', '.clear', function() {
     var idOfRemoved = $(this).parent().parent().attr("id")
     clear(this, idOfRemoved);
     $(this).closest('.new-idea').remove();
-});
+    getIdea("Data Item")
+    list()
 
+});
 
 $('#search').on('keyup', function() {
     var searchInput = $('#search').val();
