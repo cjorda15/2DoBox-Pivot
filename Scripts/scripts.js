@@ -1,49 +1,30 @@
 var data = [];
 
 $(document).ready(function() {
-    getIdea();
-    printIdea();
+    get2Do();
+    print2Do();
 })
 
-function Card(storeIdeaTitle, storeIdeaContent) {
-    this.title = storeIdeaTitle;
-    this.body = storeIdeaContent;
+function Card(store2DoTitle, store2DoContent) {
+    this.title = store2DoTitle;
+    this.body = store2DoContent;
     this.quality = "Normal";
     this.id = Date.now();
     this.complete = "no"
 }
 
-function storeIdea() {
+function store2Do() {
     var stringData = JSON.stringify(data);
     localStorage.setItem("Data Item", stringData);
 }
 
-function getIdea() {
+function get2Do() {
     var storedData = localStorage.getItem("Data Item") || '[]';
     var parsedData = JSON.parse(storedData);
     data = parsedData;
 }
 
-// function displayLength() {
-//   var  storedLength = localStorage.getItem("Data Item") || '[]';
-//    var  parsedLength = JSON.parse(storedLength)
-//    var newTen = parsedLength.prop.slice( 10 ).css('display', 'none')
-//    console.log(parsedLength.length)
-//
-//
-//
-// // parsedLength.prop.slice( 10 ).css("display", "none")
-//   // {
-//   //   if(parsedLength[i]>10){
-//   //   parsedLength.slice(10).css("display", "none")
-//   //   }
-//   //  }
-//
-//  }
-
-// displayLength()
-
-function printIdea() {
+function print2Do() {
     $("#card-section").html('');
     data.forEach(function(object) {
         $("#card-section").append(`
@@ -140,12 +121,12 @@ $("#title-input, #content-input").on("keyup", disableEnter);
 
 $("#submit").on('click', function(e) {
     e.preventDefault();
-    var storeIdeaTitle = $('#title-input').val();
-    var storeIdeaContent = $('#content-input').val();
-    var card = new Card(storeIdeaTitle, storeIdeaContent);
+    var store2DoTitle = $('#title-input').val();
+    var store2DoContent = $('#content-input').val();
+    var card = new Card(store2DoTitle, store2DoContent);
     data.unshift(card);
-    storeIdea();
-    printIdea();
+    store2Do();
+    print2Do();
     clearInput();
     disableEnter();
 })
@@ -235,7 +216,7 @@ $("#card-section").on('click', '.clear', function() {
     var idOfRemoved = $(this).parent().parent().attr("id")
     clear(this, idOfRemoved);
     $(this).closest('.new-idea').remove();
-    getIdea("Data Item")
+    get2Do("Data Item")
     list()
 
 });

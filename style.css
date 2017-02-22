@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab:700');
 
-/*----Body Structure---*/
-
 body {
   font-family: "Open Sans", sans-serif;
 }
@@ -22,7 +20,6 @@ main, aside {
 
 main {
   background-color: #FFF686;
-
 }
 
 article {
@@ -53,8 +50,6 @@ article {
   margin-bottom: 20px;
 }
 
-
-/*-----Text Styling---*/
 
 h1, h3, h4 {
   color: #6D6E71;
@@ -97,13 +92,11 @@ hr {
   width: 90%;
 }
 
-#importance-text{
+#importance-text {
   font-size: 14px;
   font-weight: 200;
   font-family: sans-serif;
 }
-
-/*-----Interactivity Styling----*/
 
 input[type="text"], textarea {
   border-color: #939598;
@@ -133,11 +126,7 @@ button {
   outline: none;
 }
 
-.completed-btn {
-  background-color:
-}
-
-#all,#none,#low,#normal,#high,#critical{
+.important-btn {
   background-color: #6369FF;
   border:none;
   color:#ffffff;
@@ -174,12 +163,12 @@ background-color: red;
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
-  width: 82%;
+  width: 81%;
   color: #FFFFFF;
 }
 
 #submit:hover {
-  background-color: #045e55;
+  background-color: #6369FF;
 }
 
 #submit:disabled {
@@ -203,12 +192,12 @@ width: 20px;
 }
 
 .clear {
-  background-image: url("images/delete.svg");
-  display: inline;
-  float: right;
-  margin-top: 18px;
-  margin-right: 15px;
-  position: relative;
+background-image: url("images/delete.svg");
+display: inline;
+float: right;
+margin-top: 18px;
+margin-right: 15px;
+position: relative;
 }
 
 .clear:hover {
@@ -233,7 +222,6 @@ width: 20px;
   background-image: url("images/downvote-hover.svg");
 }
 
-
 .no {
 background-color: white
 }
@@ -241,8 +229,6 @@ background-color: white
 .yes{
   background-color: purple;
 }
-
-/*----Media Queries ----*/
 
 @media screen and (min-width: 480px) {
 
@@ -291,9 +277,8 @@ background-color: white
     width: 80%;
   }
 
-  #all,#none,#low,#normal,#high,#critical{
+  .important-btn {
     margin: 10px 30px 0 0;
-
   }
 
   .entry-title, .entry-body {
