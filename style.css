@@ -130,8 +130,9 @@ button {
   background-color: #6369FF;
   border:none;
   color:#ffffff;
-  margin: 10px 20px 0 0;
+  margin: 10px 10px 0 0;
   display: inline-block;
+  width: 62px;
 }
 
 #critical {
@@ -153,6 +154,7 @@ background-color: red;
   color: #5C5FFF;
 }
 
+#show-completed,
 #submit,
 #listAll {
   background-color: #6369FF;
@@ -175,17 +177,10 @@ background-color: red;
   background-color: #6369FF;
 }
 
-#search, #listAll {
+#search {
   height: 25px;
   margin-bottom: 18px;
   margin-top: 18px;
-  margin-left: 5px;
-}
-
-#input-box{
-  display:flex;
-  width:82%;
-
 }
 
 .clear,
@@ -230,11 +225,12 @@ position: relative;
 }
 
 .no {
-background-color: white
+background-color: #FFFFFF;
 }
 
 .yes{
-  background-color: purple;
+  background-color: #AFAFAF ;
+  display: none;
 }
 
 @media screen and (min-width: 480px) {
