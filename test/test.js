@@ -47,6 +47,14 @@ checkDownVotes(driver_chr)
 checkSearch(driver_fx)
 checkSearch(driver_chr)
 
+// checkSearch2(driver_saf)
+checkSearch2(driver_fx)
+checkSearch2(driver_chr)
+
+// noneTest(driver_fx)
+// noneTest(driver_chr)
+// noneTest(driver_saf)
+
 function logTest(driver) {
   driver.get('https://cjorda15.github.io/2DoBox-Pivot/');
   driver.findElement(By.id('title-input')).sendKeys("Code");
@@ -176,7 +184,54 @@ function checkSearch(driver){
   }
   driver.sleep(500)
 
-  driver.quit();
 
   })
 }
+
+function checkSearch2(driver){
+  driver.findElement(By.id('title-input')).sendKeys("goodness");
+  driver.findElement(By.id('content-input')).sendKeys("gracious");
+  driver.findElement(By.id('submit')).click();
+  driver.findElement(By.id('search')).clear()
+  driver.findElement(By.id('search')).sendKeys("goo")
+  driver.sleep(500)
+  driver.findElement(By.className("entry-title")).getText().then(function(title){
+  if(title==="goodness"){
+    console.log("Test 9 passed")
+  }else{
+    console.log("Test 9 failed")
+  }
+  driver.sleep(2000)
+  driver.quit();
+
+
+  })
+}
+
+
+ // function noneTest(driver) {
+ //     driver.findElement(By.id('search')).sendKeys("")
+ //     driver.findElement(By.id('title-input')).sendKeys("1");
+ //     driver.findElement(By.id('content-input')).sendKeys("1");
+ //     driver.findElement(By.id('submit')).click();
+ //     driver.findElement(By.id('title-input')).sendKeys("2");
+ //     driver.findElement(By.id('content-input')).sendKeys("2");
+ //     driver.findElement(By.id('submit')).click();
+ //     driver.findElement(By.id('title-input')).sendKeys("3");
+ //     driver.findElement(By.id('content-input')).sendKeys("3");
+ //     driver.findElement(By.id('submit')).click();
+ //     driver.sleep(500)
+ //     driver.findElement(By.className('downvote')).click();
+ //     driver.findElement(By.className('downvote')).click();
+ //     driver.findElement(By.id('none')).click()
+ //     driver.findElement(By.className('newIdea')).then(function(card) {
+ //             if (driver.findElement(By.className('newIdea')).length === 1) {
+ //                 console.log("Test 9 passed")
+ //             } else {
+ //                 console.log("Test 9 failed")
+ //             }
+ //             driver.sleep(2000)
+ //
+ //         })
+ //
+ //     }
