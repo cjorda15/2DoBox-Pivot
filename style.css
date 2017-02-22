@@ -54,7 +54,6 @@ article {
 }
 
 
-
 /*-----Text Styling---*/
 
 h1, h3, h4 {
@@ -142,16 +141,22 @@ button {
   background-color: #6369FF;
   border:none;
   color:#ffffff;
-  margin:3px;
+  margin: 10px 20px 0 0;
   display: inline-block;
+}
+
+#critical {
+  margin-right: 0px;
 }
 
 .completed-btn {
 float: right;
 margin-top: 20px;
+background-color: #6369FF;
 }
 
-.completed-btn:active {
+.completed-btn:active,
+.completed-btn:hover {
 background-color: red;
 }
 
@@ -159,7 +164,8 @@ background-color: red;
   color: #5C5FFF;
 }
 
-#submit {
+#submit,
+#listAll {
   background-color: #6369FF;
   border-radius: 0px;
   display: block;
@@ -169,6 +175,7 @@ background-color: red;
   margin-right: auto;
   margin-top: 15px;
   width: 82%;
+  color: #FFFFFF;
 }
 
 #submit:hover {
@@ -289,6 +296,11 @@ background-color: white
 
   #search {
     width: 80%;
+  }
+
+  #all,#none,#low,#normal,#high,#critical{
+    margin: 10px 30px 0 0;
+
   }
 
   .entry-title, .entry-body {

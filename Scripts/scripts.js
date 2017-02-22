@@ -57,7 +57,7 @@ function printIdea() {
 					<button class="upvote"></button>
 					<button class="downvote"></button>
 					<h3>Importance:<h4 class="quality">${object.quality}</h4></h3>
-          <button class="completed-btn">Completed</button>
+          <button class="completed-btn">completed</button>
 				</article>
 				<hr>
 			</div>`);
