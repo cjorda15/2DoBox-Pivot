@@ -228,6 +228,7 @@ background-color: white
 
 .yes{
   background-color: purple;
+  display: none;
 }
 
 @media screen and (min-width: 480px) {
